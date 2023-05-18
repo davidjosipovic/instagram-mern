@@ -19,6 +19,7 @@ connection.once('open', () => {
 })
 const usersRouter=require('./routes/users');
 const postsRouter=require('./routes/posts');
+const AuthRouter = require("./routes/auth.route");
 
 app.use('/users',usersRouter);
 app.use('/posts',postsRouter);
