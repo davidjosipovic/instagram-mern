@@ -1,15 +1,11 @@
-const express = require('express');
-const cors = require('cors');
-const mongoose=require('mongoose');
-
-require('dotenv').config();
-
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 5000;
-
-app.use(cors());
-app.use(express.json());
-
+require("dotenv").config();
+const cookieParser = require("cookie-parser");
+const authRoute = require("./routes/auth.route");
+const port = process.env.PORT || 4000;
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true }
 );
@@ -17,13 +13,20 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
 })
-const usersRouter=require('./routes/users');
-const postsRouter=require('./routes/posts');
-const AuthRouter = require("./routes/auth.route");
-
-app.use('/users',usersRouter);
-app.use('/posts',postsRouter);
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is listening on port ${port}`);
 });
+
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+app.use(cookieParser());
+
+app.use(express.json());
+
+app.use("/", authRoute);

@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user.model');
+const auth = require("../middleware/auth");
 
 // Define routes for users
 
 // GET /users
-router.get('/', async (req, res) => {
+router.get('/',auth, async (req, res) => {
   try {
     // Fetch all users from the database
     const users = await User.find();
