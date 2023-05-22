@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
+import Navbar from "../components/Navbar.jsx"
 
 const Home = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Home = () => {
   return (
     <>
       <div className="home_page">
+        <Navbar/>
         <h4>
           {" "}
           Welcome <span>{username}</span>
