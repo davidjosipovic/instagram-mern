@@ -1,0 +1,46 @@
+.Navbar{
+width: 100%;
+
+}
+.UpNavbar{
+    position: fixed;
+    display: flex;
+    top:0;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+}
+
+.DownNavbar{
+    position: fixed;
+    display: flex;
+    bottom:0;
+    width: 100%;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    gap: 5rem;
+}
+#Logo{
+    color: black;
+    padding: 1rem;
+
+}
+#Search{
+    font-size: 1.5rem;
+    padding: 0.2rem;
+    border-radius: 0.5rem;
+    margin-left:auto;
+    width: 50%;
+}
+#Heart{
+    color: black;
+    font-size: 3rem;
+    margin-left: auto;
+    padding-right: 2rem;
+}
+.item{
+    font-size: 3rem;
+    gap: 1rem;
+}
