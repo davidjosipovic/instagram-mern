@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className='item'>♡</div>
       <div className='item'>♡</div>
       <div className='item'>♡</div>
-      <div className='item'>+</div>
+      <div className='item'>♡</div>
       </div>
 
     </div>
